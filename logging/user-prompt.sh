@@ -13,10 +13,10 @@ main() {
     init_log() {
         # promt the user until they input an acceptable string
         prompt_until_set() {
-            local desired_input="${1}" # desired input, seperated by "|"; e.g. "DEBUG|INFO|ERROR"
+            local desired_input="${1}"  # desired input, seperated by "|"; e.g. "DEBUG|INFO|ERROR"
             local prompt_message="${2}" # message in the prompt without ${desired_input}
-            local desired_variable # variable that will be tested for input and then returned
-            until ! [[ -z "${desired_variable:-}" ]] && \
+            local desired_variable      # variable that will be tested for input and then returned
+            until ! [[ -z "${desired_variable:-}" ]] &&
                     [[ "${desired_variable^^}" =~ ^(${desired_input})$ ]]; do
                 read -rp "${prompt_message} [${desired_input}]: $(echo $'\n> ')" desired_variable
             done
@@ -25,8 +25,8 @@ main() {
 
         # prompt the user for the desired log level
         desired_log_level="$(prompt_until_set "DEBUG|INFO|WARN|ERROR|FATAL" "Set the desired log level")"
-        # prompt the user for 
-        read -rp "Set the desired full path for this log: $(echo $'\n> ')" log_file
+        # prompt the user for
+        read -rp "Set the desired path for this log: $(echo $'\n> ')" log_file
         # get directory of log file
         log_dir="$(dirname ${log_file})"
 
@@ -42,18 +42,18 @@ main() {
 
         log_levels=(
             [DEBUG]=0
-             [INFO]=1
-             [WARN]=2
+            [INFO]=1
+            [WARN]=2
             [ERROR]=3
             [FATAL]=4
         )
         log_colors=(
-            [DEBUG]="\e[1;97m"       # White
-             [INFO]="\e[38;5;114m"   # Green
-             [WARN]="\e[38;5;228m"   # Yellow
-            [ERROR]="\e[38;5;203m"   # Red
-            [FATAL]="\e[38;5;99m"    # Purple
-            [RESET]="\e[0m"          # Reset
+            [DEBUG]="\e[1;97m"     # White
+            [INFO]="\e[38;5;114m"  # Green
+            [WARN]="\e[38;5;228m"  # Yellow
+            [ERROR]="\e[38;5;203m" # Red
+            [FATAL]="\e[38;5;99m"  # Purple
+            [RESET]="\e[0m"        # Reset
         )
 
         log() {

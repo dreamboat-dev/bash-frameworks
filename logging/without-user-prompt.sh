@@ -26,18 +26,18 @@ main() {
 
         log_levels=(
             [DEBUG]=0
-             [INFO]=1
-             [WARN]=2
+            [INFO]=1
+            [WARN]=2
             [ERROR]=3
             [FATAL]=4
         )
         log_colors=(
-            [DEBUG]="\e[1;97m"       # White
-             [INFO]="\e[38;5;114m"   # Green
-             [WARN]="\e[38;5;228m"   # Yellow
-            [ERROR]="\e[38;5;203m"   # Red
-            [FATAL]="\e[38;5;99m"    # Purple
-            [RESET]="\e[0m"          # Reset
+            [DEBUG]="\e[1;97m"     # White
+            [INFO]="\e[38;5;114m"  # Green
+            [WARN]="\e[38;5;228m"  # Yellow
+            [ERROR]="\e[38;5;203m" # Red
+            [FATAL]="\e[38;5;99m"  # Purple
+            [RESET]="\e[0m"        # Reset
         )
 
         log() {
