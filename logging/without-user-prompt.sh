@@ -78,12 +78,6 @@ main() {
         }
     }
     init_log
-
-    log_debug "test"
-    log_info "test"
-    log_warn "test"
-    log_error "test"
-    log_fatal "test"
 }
 
 main
